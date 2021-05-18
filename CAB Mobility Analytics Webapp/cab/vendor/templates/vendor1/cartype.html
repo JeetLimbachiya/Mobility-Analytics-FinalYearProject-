@@ -1,0 +1,131 @@
+{% extends 'vendor/vendor_base.html' %}
+{% block title %}Cartype{% endblock %}
+{% block data %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% if add == 'True' %}
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 "></div>
+      <div class="col-lg-6">
+
+        <form method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+          <h3 class='text-center pb-5'>Car</h3>
+          {% csrf_token %}
+          <div class="form-group">
+            {% render_field form.car_type class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.car placeholder="Car name" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.vehicle_no placeholder="Vehical no" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.no_of_seat placeholder="No of seat" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.car_model_no placeholder="Vehical model no." class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.per_km_price placeholder="Price per km" class="form-control"%}
+          </div>
+          <div class="form-group">
+            Add Car Image:
+            {{form.image}}
+          </div>
+          <div class="text-center"><button type="submit" value="submit">Add Car</button></div>
+        </form>
+      </div>
+      <div class="col-lg-3 "></div>
+    </div>
+    <div class="row mt-5">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Car Type</th>
+              <th>Car</th>
+              <th>Image</th>
+              <th>Vehical no</th>
+              <th>No of seat</th>
+              <th>Car Model no</th>
+              <th>Per km price</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for car in cartype %}
+            <tr>
+              <td>{{car.id}}</td>
+              <td>{{car.car_type}}</td>
+              <td>{{car.car}}</td>
+              <td><img src="{{car.image.url}}" style="height: 50px; width: 50px;" /></td>
+              <td>{{car.vehicle_no}}</td>
+              <td>{{car.no_of_seat}}</td>
+              <td>{{car.car_model_no}}</td>
+              <td>{{car.per_km_price}}</td>
+              <td>
+                <a class="btn btn-primary" href="{% url 'cartypeedit' car.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'cartypedelete' car.id %}">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+  </div>
+</section>
+<!-- End Register Section -->
+{% else %}
+
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 "></div>
+      <div class="col-lg-6">
+
+        <form method="post" role="form" class="php-email-form" enctype="multipart/form-data"> 
+          <h3 class='text-center pb-5'>Edit Car Type</h3>
+          {% csrf_token %}
+          <div class="form-group">
+            {% render_field form.car_type class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.car placeholder="Car name" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.vehicle_no placeholder="Vehical no" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.no_of_seat placeholder="No of seat" class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.car_model_no placeholder="Vehical model no." class="form-control"%}
+          </div>
+          <div class="form-group">
+            {% render_field form.per_km_price placeholder="Price per km" class="form-control"%}
+          </div>
+          <div class="form-group">
+            Change Car Image:
+            {{form.image}}
+          </div>
+          <div class="text-center"><button type="submit" value="submit">Edit Car</button>
+            <a class='btn btn-primary' href="{% url 'cartype' %}">Cancel</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3 "></div>
+    </div>
+  </div>
+</section>
+<!-- End Register Section -->
+
+{% endif %}
+
+
+{% endblock %}

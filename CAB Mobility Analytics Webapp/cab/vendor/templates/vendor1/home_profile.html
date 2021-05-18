@@ -1,0 +1,46 @@
+{% extends 'vendor/vendor_base.html' %}
+{% block title %}Profile{% endblock %}
+{% block data %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-3 ">
+          <img src="{{pro.profile_pic.url}}" alt="profile pic" class="img-thumbnail">
+        </div>
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-5">
+  
+          <form method="post" role="form" class="php-email-form" enctype="multipart/form-data"> 
+            <h3 class='text-center pb-5'>Profile</h3>
+            <div class="form-group">
+              {% render_field user_form.first_name|append_attr:"readonly:readonly" class="form-control" autofocus="true" %}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.last_name|append_attr:"readonly:readonly" class="form-control"%}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.username|append_attr:"readonly:readonly" class="form-control"%}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.email|append_attr:"readonly:readonly" class="form-control"%}
+            </div>
+            <div class="form-group">
+              <input type="text" name='adress' class="form-control" value={{pro.adress}} readonly>
+            </div>
+            <button><a href="{% url 'update_profile' %}">Update Profile</a></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Register Section -->
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'vendor/vendor_base.html' %}
+{% block title %}Profile{% endblock %}
+{% block data %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 "></div>
+        <div class="col-lg-6">
+  
+          <form method="post" role="form" class="php-email-form" enctype="multipart/form-data"> 
+            <h3 class='text-center pb-5'>Edit Profile</h3>
+            {% csrf_token %}
+            <div class="form-group">
+              {% render_field user_form.first_name class="form-control" autofocus="true" %}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.last_name class="form-control"%}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.username class="form-control"%}
+            </div>
+            <div class="form-group">
+              {% render_field user_form.email class="form-control"%}
+            </div>
+            <div class="form-group">
+              <input type="text" name='adress' class="form-control" value={{form.adress}}>
+            </div>
+            <div class="form-group">
+               <div> Currently: {{form.profile_pic}}</div>
+               <span>Select image:</span>
+              <input type="file" name="profile_pic" class='p-0' accept="image/*"> 
+            </div>
+            <div class="text-center"><button type="submit" value="submit">Edit Profile</button>
+              <button><a href="{% url 'profile' %}">Cancal</a></button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-3 "></div>
+      </div>
+    </div>
+  </section>
+  <!-- End Register Section -->
+
+
+{% endblock %}

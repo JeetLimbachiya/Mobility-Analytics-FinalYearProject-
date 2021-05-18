@@ -1,0 +1,98 @@
+{% extends 'vendor/vendor_base.html' %}
+{% block title %}Driver{% endblock %}
+{% block data %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% if add == 'True' %}
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 "></div>
+            <div class="col-lg-6">
+                <form method="post" role="form" class="php-email-form">
+                    <h3 class='text-center pb-5'>Driver</h3>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {% render_field form.driver_name placeholder="Driver name" class="form-control"%}
+                    </div>
+                    <div class="form-group">
+                        {% render_field form.driver_contact_no placeholder="Driver contact no." class="form-control"%}
+                    </div>
+                    <div class="form-group">
+                        {% render_field form.car_type class="form-control"%}
+                    </div>
+                    <div class="text-center"><button type="submit" value="submit">Add Driver</button></div>
+                </form>
+            </div>
+            <div class="col-lg-3 "></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-1 "></div>
+            <div class="col-lg-10 ">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Driver Name</th>
+                        <th>Contact no</th>
+                        <th>Type of car</th>
+                        <th>Edit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for car in cab %}
+                      <tr>
+                        <td>{{car.id}}</td>
+                        <td>{{car.driver_name}}</td>
+                        <td>{{car.driver_contact_no}}</td>
+                        <td>{{car.car_type}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'driveredit' car.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'driverdelete' car.id %}">Delete</a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-lg-1 "></div>
+        </div>
+    </div>
+</section>
+<!-- End Register Section -->
+{% else %}
+
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 "></div>
+      <div class="col-lg-6">
+        <form method="post" role="form" class="php-email-form">
+          <h3 class='text-center pb-5'>Edit Driver</h3>
+          {% csrf_token %}
+          <div class="form-group">
+            {% render_field form.driver_name placeholder="Driver name" class="form-control"%}
+        </div>
+        <div class="form-group">
+            {% render_field form.driver_contact_no placeholder="Driver contact no." class="form-control"%}
+        </div>
+        <div class="form-group">
+            {% render_field form.car_type class="form-control"%}
+        </div>
+          <div class="text-center"><button type="submit" value="submit">Edit Driver</button>
+             <a class='btn btn-primary' href="{% url 'driver' %}">Cancel</a></div>
+        </form>
+      </div>
+      <div class="col-lg-3 "></div>
+    </div>
+  </div>
+</section>
+<!-- End Register Section -->
+
+{% endif %}
+
+
+{% endblock %}

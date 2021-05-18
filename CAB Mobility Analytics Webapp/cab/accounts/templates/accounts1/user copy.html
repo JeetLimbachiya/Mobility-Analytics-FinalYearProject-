@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+      <div class="logo mr-auto">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'accounts/img/logo.png' %}" width="100" height="100" alt="">
+        </a>
+      </div>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+{{form}}
+
+<h1>Customer Since Month: {{customer_since_month}}</h1>
+
+{% endblock %}

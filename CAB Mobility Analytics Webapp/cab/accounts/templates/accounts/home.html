@@ -1,0 +1,289 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+      <div class="logo mr-auto">
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'accounts/img/logo.png' %}" width="100" height="100" alt="">
+        </a>
+      </div>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'contactus' %}">Contact us</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background-image: url('{% static 'accounts/img/sample.jpg' %}')";>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>JDK</span></h2>
+                            <p class="animate__animated animate__fadeInUp">JDK offers the best cab vendors and drivers for
+                                every prime location of India to make your journey hassle free.
+                            We ensure to provide the unforgettable experience to our customers. With cab prediction facility of
+                                JDK, be ready to travel at any prime location of India with comfort. We have tied up with 4000+
+                                cab vendors to offer the best of online cab prediction facility. Customers can choose the cab
+                                from the different categories of cabs including micro, mini, prime, sedan, SUV and many more.
+                                This online cab prediction facility of JDK also offers the analysis of most pickup calls on discounted rates.
+                                So, what are you waiting? Make cab prediction at JDK and travel comfortably.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item" style="background-image: url('{% static 'accounts/img/sample.jpg' %}')";>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated fanimate__adeInDown">Client Side </h2>
+                            <p class="animate__animated animate__fadeInUp">JDK provides the best suitable cab for the customer
+                                based on customer rating , lifestyle of the customer and also ensure the satisfaction  of the customer.
+
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item" style="background-image: url('{% static 'accounts/img/sample.jpg' %}')";>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__fadeInDown">Vendor Side </h2>
+                            <p class="animate__animated animate__fadeInUp">JDK thinks about vendor because whenever new vendor come
+                                into competitive world they have lack of knowledge, so JDK analyse the past data and
+                                give the suitable places where the cab should be placed and how vendor can earn more revenue.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>Our Services</h2>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4>Extensive Options</h4>
+                <p>Wide range of quality,safe & licensed vehicles</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                  <h4><a href="">Convenient</a></h4>
+                <p>Enjoy a high-quality transfer experience at surprisingly low prices</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4><a href="">Easy & flexible Prediction of suitable cab</a></h4>
+                <p>Prediction online is easy and only take 5 minutes, cancellations are free of charge up to 24 hours before the transfer.</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+          <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+        <div class="container">
+  
+          <div class="row no-gutters">
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class="icofont-simple-smile"></i>
+                <span data-toggle="counter-up">232</span>
+                <p><strong>Happy Clients</strong> </p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class="icofont-document-folder"></i>
+                <span data-toggle="counter-up">521</span>
+                <p><strong>Projects</strong> </p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class="icofont-live-support"></i>
+                <span data-toggle="counter-up">1,463</span>
+                <p><strong>Hours Of Support</strong> </p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class="icofont-users-alt-5"></i>
+                <span data-toggle="counter-up">15</span>
+                <p><strong>Hard Workers</strong></p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+      <!-- End Counts Section -->
+
+          <!-- ======= Blog Section ======= -->
+    <section id="featured" class="featured">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>Blog</h2>
+              </div>
+  
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="icon-box">
+                <i class="icofont-computer"></i>
+                <h3><a href="">Announcement</a></h3>
+                <p>JDK automation is the first and foremost and it turned out to be the most preferred technology across all the industries.  </p>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+              <div class="icon-box">
+                <i class="icofont-image"></i>
+                <h3><a href="">Tech Talks</a></h3>
+                <p>Defining, designing, & executing tech strategies for better business outcomes.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+              <div class="icon-box">
+                <i class="icofont-tasks-alt"></i>
+                <h3><a href="">Digital Revolution</a></h3>
+                <p>JDK is laying the digital fabric to the heart of Indian aggregators and customers.</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+      <!-- End Blog Section -->
+
+        <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Team</h2>
+              </div>
+  
+          <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'accounts/img/jeet.png' %}" alt="">
+                <h4>Jeet Limbachiya</h4>
+                <span>Machine Learning Engineer</span>
+                <p>
+                  Knowledge of basic libraries, MS Excel, Tableau and machine learning models and participated in many hackhathons.
+                </p>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/jeet-limbachiya-1948281b0/"><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'accounts/img/devansh.png' %}" alt="">
+                <h4>Devansh Trivedi</h4>
+                <span>UI/UX Developer</span>
+                <p>
+                  Basic knowledge of web designing and interested in photoshoot and video editing.
+                </p>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static 'accounts/img/kishan.png' %}" alt="">
+                <h4>Kishan Patel</h4>
+                <span>Data Analyst</span>
+                <p>
+                    Basic knowledge of matplotlib and seaborn and trying to learn tableu and many more data visualization tools.
+                </p>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href="https://www.instagram.com/patelkishan2312/"><i class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/kishan-patel-68265b14b/"><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+      <!-- End Team Section -->
+  
+
+
+
+
+
+{% endblock %}

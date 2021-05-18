@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %} {% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'accounts/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accounts/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accounts/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accounts/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accounts/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accounts/vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'accounts/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+      <div class="logo mr-auto">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'accounts/img/logo.png' %}" width="100" height="100" alt="">
+        </a>
+      </div>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 p-0">
+            <!--Start Left sidebar -->
+    <aside id="basicSidebar" role="navigation" style="background-color: #404040; height: 500px;">
+      <ul class="nav flex-column">
+          <li class="nav-item pmd-user-info">
+              <a data-toggle="collapse" href="#collapseExample" class="nav-link btn-user media align-items-center">
+                  <img class="mr-3" src="{{pro.profile_pic}}" width="40" height="40" alt="avatar">
+                  <div class="media-body">
+                      {{user}}
+                  </div>
+              </a>
+              <ul class="collapse" id="collapseExample" data-parent="#basicSidebar">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'profile' %}">
+                          <span class="media-body">View Profile</span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'update_profile' %}">
+                          <span class="media-body">Edit Profile</span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">
+                          <span class="media-body">Change Password</span>
+                      </a>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'country' %}">
+                  <span class="media-body">Country</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active" href="{% url 'state' %}">
+                  <span class="media-body">State</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'city' %}">
+                  <span class="media-body">City</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'cartype' %}">
+                  <span class="media-body">Car Type</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'driver' %}">
+                  <span class="media-body">Driver</span>
+              </a>
+          </li>
+      </ul>
+  </aside>
+  <!-- End Left sidebar -->
+      </div>
+      <div class="col-9">
+        {% block data %} {% endblock %}
+      </div>
+    </div>
+  </div>
+
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>JDK</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">Jeet Limbachiya</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'accounts/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/jquery.easing/jquery.easing.min.js' %}"' %}></script>
+  <script src="{% static ' accounts/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'accounts/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'accounts/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'accounts/vendor/venobox/venobox.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'accounts/js/main.js' %}"></script>
+
+</body>
+
+</html>

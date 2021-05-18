@@ -1,0 +1,83 @@
+{% extends 'vendor/vendor_base.html' %}
+{% block title %}Country{% endblock %}
+{% block data %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% if add == 'True' %}
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 "></div>
+      <div class="col-lg-6">
+
+        <form method="post" role="form" class="php-email-form">
+          <h3 class='text-center pb-5'>Country</h3>
+          {% csrf_token %}
+          <div class="form-group">
+            {% render_field form.country_name placeholder="Country" class="form-control"%}
+          </div>
+          <div class="text-center"><button type="submit" value="submit">Add Country</button></div>
+        </form>
+      </div>
+      <div class="col-lg-3 "></div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-1 "></div>
+      <div class="col-lg-10 ">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Country</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for con in country %}
+            <tr>
+              <td>{{con.id}}</td>
+              <td>{{con.country_name}}</td>
+              <td>
+                <a class="btn btn-primary" href="{% url 'countryedit' con.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'countrydelete' con.id %}">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-1 "></div>
+    </div>
+  </div>
+</section>
+<!-- End Register Section -->
+{% else %}
+
+<!-- ======= Register Section ======= -->
+<section id="contact" class="contact mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 "></div>
+      <div class="col-lg-6">
+
+        <form method="post" role="form" class="php-email-form">
+          <h3 class='text-center pb-5'>Edit Country</h3>
+          {% csrf_token %}
+          <div class="form-group">
+            {% render_field form.country_name placeholder="Country" class="form-control"%}
+          </div>
+          <div class="text-center"><button type="submit" value="submit">Edit Country</button>
+             <a class='btn btn-primary' href="{% url 'country' %}">Cancel</a></div>
+        </form>
+      </div>
+      <div class="col-lg-3 "></div>
+    </div>
+  </div>
+</section>
+<!-- End Register Section -->
+
+{% endif %}
+
+{% endblock %}
